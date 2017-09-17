@@ -30,7 +30,7 @@ def get_weather():
             today_t_max = u'不明'
 
         if temperature['min']:
-            today_t_min = unicode(temperature['min']['celsius']) + '度'
+            today_t_min = unicode(temperature['min']['celsius']) + u'度'
         else:
             today_t_min = u'不明'
 
