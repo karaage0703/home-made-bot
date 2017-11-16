@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
-import shlex
 import subprocess
 
 from datetime import datetime
 
 import argparse
 import get_weather as gw
+import get_gcal_schedule as gc
 
 parser = argparse.ArgumentParser(
             prog='speak_bot.py',
@@ -50,6 +50,8 @@ if __name__ == "__main__":
             word_txt = gw.get_weather()
         if args.command == 'time':
             word_txt = get_datetime()
+        if args.command == 'schedule':
+            word_txt = gc.get_schedule()
 
     if args.file:
         with open(args.file) as f:

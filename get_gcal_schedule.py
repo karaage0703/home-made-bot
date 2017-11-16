@@ -10,11 +10,11 @@ from oauth2client.file import Storage
 
 import datetime
 
-try:
-    import argparse
-    flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
-except ImportError:
-    flags = None
+# try:
+#     import argparse
+#     flags = argparse.ArgumentParser(parents=[tools.argparser]).parse_args()
+# except ImportError:
+#     flags = None
 
 # If modifying these scopes, delete your previously saved credentials
 # at ~/.credentials/calendar-python-quickstart.json
@@ -51,7 +51,7 @@ def get_credentials():
         print('Storing credentials to ' + credential_path)
     return credentials
 
-def main():
+def get_schedule():
     """Shows basic usage of the Google Calendar API.
 
     Creates a Google Calendar API service object and outputs a list of the next
@@ -71,12 +71,21 @@ def main():
         orderBy='startTime').execute()
     events = eventsResult.get('items', [])
 
+    event_text = ''
+
     if not events:
-        print('今日の予定はありません')
-    for event in events:
-        start = event['start'].get('dateTime', event['start'].get('date'))
-        print(str(start[11:13])+'時'+str(start[14:16])+'分に')
-        print(event['summary'])
+        event_text = '今日の予定はありません'
+        print(event_text)
+        return event_text
+
+    else:
+        for event in events:
+            start = event['start'].get('dateTime', event['start'].get('date'))
+            event_text += str(start[11:13])+'時'+str(start[14:16])+'分に'
+            event_text += event['summary'].encode('utf_8')
+
+        print(event_text)
+        return event_text
 
 if __name__ == '__main__':
-    main()
+    get_schedule()
