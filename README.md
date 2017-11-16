@@ -23,7 +23,7 @@ $ sudo pip install google-api-python-client
 Setup Audio and Voice recognition(Julius). Refer to following page:  
 http://karaage.hatenadiary.jp/entry/2015/08/24/073000
 
-Setup OpenJtalk. Refer to following page(Japanese): 
+Setup OpenJtalk. Refer to following page(Japanese):  
 http://karaage.hatenadiary.jp/entry/2016/07/22/073000
 
 ## Usage
