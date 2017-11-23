@@ -40,6 +40,7 @@ def mic_off():
     subprocess.call(cmd, shell=True)
 
 if __name__ == "__main__":
+    mic_on()
     clientsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     clientsock.connect((host, port))
 
